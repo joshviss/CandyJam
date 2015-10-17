@@ -12,7 +12,7 @@ public class Character : MonoBehaviour {
 
 	static public Character S; //Singleton
 	float speedX = 2.0f;
-	float speedJump = 8.0f;
+	float speedJump = 6f;
 	float speedLadder = 1.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
@@ -26,7 +26,6 @@ public class Character : MonoBehaviour {
 	bool onLadder = false;
 	bool collideWithLadder = false;
 	bool hasTorch = false;
-	Vector3 ladderStartPosition;
 	Facing face;
 	public int keyCount = 0;
 	public Canvas gameOver;
@@ -67,8 +66,8 @@ public class Character : MonoBehaviour {
 		Vector3 vel = rigid.velocity;
 
 		Vector3 loc = transform.position;
-		Debug.DrawRay (loc, Vector3.down * 0.5f, Color.blue);
-		grounded = (Physics.Raycast (loc, Vector3.down, 0.5f, groundPhysicsLayerMask));
+		Debug.DrawRay (loc, Vector3.down * 1.25f, Color.blue);
+		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask));
 
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
@@ -138,24 +137,11 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision other){
-		GameObject collidedWith = other.gameObject;
-		
-		if (collidedWith.tag == "Key") {
-			Destroy (collidedWith);
-			++keyCount;
-		}
-	}
-
 	void OnTriggerEnter(Collider other){
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
-			rigid.velocity = Vector3.zero;
-			rigid.useGravity = false;
-			ladderStartPosition = transform.position;
-			ladderStartPosition.x = other.transform.position.x;
 		}
 	}
 
