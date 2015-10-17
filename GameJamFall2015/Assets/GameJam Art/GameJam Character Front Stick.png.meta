@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 19f342a5a6adf3442b533937f9aca979
-timeCreated: 1445110163
+guid: a942743dc09c2004c9c993590e8b0c3f
+timeCreated: 1445110120
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GameJam Character Right_0
+    21300000: GameJam Character Front Stick_0
+    21300002: GameJam Character Front Stick_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,13 +52,23 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: GameJam Character Right_0
+    - name: GameJam Character Front Stick_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 544
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GameJam Character Front Stick_1
       rect:
         serializedVersion: 2
         x: 104
         y: 136
-        width: 464
-        height: 864
+        width: 552
+        height: 872
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

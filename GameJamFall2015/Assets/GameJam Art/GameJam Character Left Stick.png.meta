@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 19f342a5a6adf3442b533937f9aca979
-timeCreated: 1445110163
+guid: 4aa979fdf82ed0d4ab42a8c2661cdf73
+timeCreated: 1445110235
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GameJam Character Right_0
+    21300000: GameJam Character Left Stick_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,12 +51,12 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: GameJam Character Right_0
+    - name: GameJam Character Left Stick_0
       rect:
         serializedVersion: 2
-        x: 104
+        x: 160
         y: 136
-        width: 464
+        width: 512
         height: 864
       alignment: 0
       pivot: {x: 0, y: 0}

@@ -81,7 +81,7 @@ public class Character : MonoBehaviour {
 		}
 
 		// Jumping
-		if (Input.GetKeyDown (KeyCode.Space) && grounded && !onLadder) {
+		if (Input.GetKeyDown (KeyCode.A) && grounded && !onLadder) {
 			vel.y = speedJump;
 		}
 
@@ -104,7 +104,7 @@ public class Character : MonoBehaviour {
 		}
 
 		// Jumping down ladder
-		if (onLadder && Input.GetKeyDown (KeyCode.Space)) {
+		if (onLadder && Input.GetKeyDown (KeyCode.A)) {
 			onLadder = false;
 			rigid.useGravity = true;
 		}
@@ -116,19 +116,25 @@ public class Character : MonoBehaviour {
 		if (face == Facing.R) {
 			if (hasTorch) {
 				spRend.sprite = spRT;
-			} else {
+			} else if (hasStick){
+				spRend.sprite = spRS;
+			}else {
 				spRend.sprite = spR;
 			}
 		} else if (face == Facing.L) {
 			if (hasTorch) {
 				spRend.sprite = spLT;
-			} else {
+			} else if (hasStick){
+				spRend.sprite = spLS;
+			}else {
 				spRend.sprite = spL;
 			}
 		} else {
 			if (hasTorch) {
 				spRend.sprite = spFT;
-			} else {
+			} else if (hasStick){
+				spRend.sprite = spFS;
+			}else {
 				spRend.sprite = spF;
 			}
 		}

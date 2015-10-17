@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 19f342a5a6adf3442b533937f9aca979
-timeCreated: 1445110163
+guid: 20d06b8b5d705f542947cd858c6961ff
+timeCreated: 1445110520
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GameJam Character Right_0
+    21300000: Torch Pile 3_0
+    21300002: Torch Pile 3_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -45,19 +46,29 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 388
+  spritePixelsToUnits: 300
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: GameJam Character Right_0
+    - name: Torch Pile 3_0
       rect:
         serializedVersion: 2
-        x: 104
-        y: 136
-        width: 464
-        height: 864
+        x: 120
+        y: 116
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Torch Pile 3_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

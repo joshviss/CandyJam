@@ -9,10 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 427612}
   - 212: {fileID: 21257028}
-  - 65: {fileID: 6537528}
   - 54: {fileID: 5406868}
   - 114: {fileID: 11424066}
-  - 114: {fileID: 11457302}
+  - 65: {fileID: 6534098}
   m_Layer: 12
   m_Name: Character_PreFab
   m_TagString: Character
@@ -47,7 +46,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &6537528
+--- !u!65 &6534098
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -57,7 +56,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .5, y: 1, z: .200000003}
+  m_Size: {x: 1.10000002, y: 2.20000005, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11424066
 MonoBehaviour:
@@ -71,20 +70,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCount: 0
-  gameOver: {fileID: 0}
---- !u!114 &11457302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b887e463f530f43ab5e1250a9c8521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCount: 0
-  gameOver: {fileID: 0}
+  spR: {fileID: 21300000, guid: 19f342a5a6adf3442b533937f9aca979, type: 3}
+  spL: {fileID: 21300000, guid: 0619abb3b9227a44da396316f7cc3f7e, type: 3}
+  spF: {fileID: 21300000, guid: 0b5902c487b9b0b4ea304f954d19dde9, type: 3}
+  spRT: {fileID: 21300000, guid: e395a42f7ca08bd46a5d43ac709e683e, type: 3}
+  spLT: {fileID: 21300000, guid: 3b4cf767087463a4db1a9d53d1572281, type: 3}
+  spFT: {fileID: 21300000, guid: 6c0c3c5a74e70e343914a971a59f3907, type: 3}
+  spRS: {fileID: 21300000, guid: d54438522bceb304fa5f2eb0822d71e2, type: 3}
+  spLS: {fileID: 21300000, guid: 4aa979fdf82ed0d4ab42a8c2661cdf73, type: 3}
+  spFS: {fileID: 21300000, guid: a942743dc09c2004c9c993590e8b0c3f, type: 3}
 --- !u!212 &21257028
 SpriteRenderer:
   m_ObjectHideFlags: 1
