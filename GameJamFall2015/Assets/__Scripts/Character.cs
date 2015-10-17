@@ -15,6 +15,7 @@ public class Character : MonoBehaviour {
 	int groundPhysicsLayerMask;
 
 	int keyCount = 0;
+	bool onLadder = false;
 
 	// Use this for initialization
 	void Start () {
@@ -60,6 +61,15 @@ public class Character : MonoBehaviour {
 		} else if (collidedWith.tag == "Key") {
 			++keyCount;
 			Destroy (collidedWith);
+		} else if (collidedWith.tag == "Ladder") {
+			/*if (Input.GetKeyDown(KeyCode.UpArrow))*/
+			{
+				onLadder = true;
+				rigid.useGravity = false;
+				Vector3 vel = rigid.velocity;
+				vel.y = speedLadder;
+				rigid.velocity = vel;
+			}
 		}
 	}
 
