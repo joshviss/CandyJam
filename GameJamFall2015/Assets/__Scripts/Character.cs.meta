@@ -1,10 +1,19 @@
 fileFormatVersion: 2
 guid: 18b887e463f530f43ab5e1250a9c8521
-timeCreated: 1445050923
+timeCreated: 1445112480
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spR: {fileID: 21300000, guid: 19f342a5a6adf3442b533937f9aca979, type: 3}
+  - spL: {fileID: 21300000, guid: 0619abb3b9227a44da396316f7cc3f7e, type: 3}
+  - spF: {fileID: 21300000, guid: 0b5902c487b9b0b4ea304f954d19dde9, type: 3}
+  - spRT: {fileID: 21300000, guid: e395a42f7ca08bd46a5d43ac709e683e, type: 3}
+  - spLT: {fileID: 21300000, guid: 3b4cf767087463a4db1a9d53d1572281, type: 3}
+  - spFT: {fileID: 21300002, guid: 6c0c3c5a74e70e343914a971a59f3907, type: 3}
+  - spRS: {fileID: 21300000, guid: d54438522bceb304fa5f2eb0822d71e2, type: 3}
+  - spLS: {fileID: 21300000, guid: 4aa979fdf82ed0d4ab42a8c2661cdf73, type: 3}
+  - spFS: {fileID: 21300002, guid: a942743dc09c2004c9c993590e8b0c3f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
