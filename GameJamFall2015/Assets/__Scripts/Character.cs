@@ -21,15 +21,15 @@ public class Character : MonoBehaviour {
 	bool grounded;
 	int groundPhysicsLayerMask;
 	int ladderLayerMask;
-	int health = 30;
+	int health = 15;
 	int damage = 1;
 	bool onLadder = false;
 	bool collideWithLadder = false;
 	bool hasTorch = false;
+	bool hasStick = false;
 	Facing face;
 	public int keyCount = 0;
-	public Canvas gameOver;
-	public Sprite spR, spL, spF, spRT, spLT, spFT;
+	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
 
 	// Use this for initialization
 	void Start () {
@@ -39,7 +39,6 @@ public class Character : MonoBehaviour {
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
-		gameOver.enabled = false;
 
 		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		noRotYZ = noRotZ | RigidbodyConstraints.FreezePositionY;
@@ -55,10 +54,7 @@ public class Character : MonoBehaviour {
 
 	void Update(){
 		if (health <= 0) {
-			gameOver.enabled = true;
-			if (Input.anyKeyDown){
-				Application.LoadLevel ("_Scene_Main_NH");
-			}
+			Application.LoadLevel ("_Scene_GameOver");
 		}
 	}
 

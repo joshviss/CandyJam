@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/_Scene_Main.unity
   - enabled: 1
     path: Assets/_Scene_Main_NH.unity
+  - enabled: 1
+    path: Assets/_Scene_Main.unity
+  - enabled: 1
+    path: Assets/_Scene_GameOver.unity
