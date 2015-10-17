@@ -365,7 +365,8 @@ Prefab:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1244835495}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11457302, guid: a01a9bd06b66d6849a3f6e90f81edfc9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a01a9bd06b66d6849a3f6e90f81edfc9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &590016676

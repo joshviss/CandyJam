@@ -101,14 +101,24 @@ public class Character : MonoBehaviour {
 		rigid.velocity = vel;
 	}
 
+	void OnCollisionEnter(Collision other){
+		GameObject collidedWith = other.gameObject;
+		
+		if (collidedWith.tag == "Key") {
+			Destroy (collidedWith);
+			++keyCount;
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
-			//rigid.useGravity = false;
-			//ladderStartPosition = transform.position;
-			//ladderStartPosition.x = other.transform.position.x;
+			rigid.velocity = Vector3.zero;
+			rigid.useGravity = false;
+			ladderStartPosition = transform.position;
+			ladderStartPosition.x = other.transform.position.x;
 		}
 	}
 
