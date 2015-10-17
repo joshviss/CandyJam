@@ -29,8 +29,9 @@ public class Character : MonoBehaviour {
 	void Update(){
 		if (health <= 0) {
 			gameOver.enabled = true;
-			Time.timeScale = 0;
-			Invoke ("ResetGame", 3f);
+			if (Input.anyKeyDown){
+				Application.LoadLevel ("_Scene_Main_NH");
+			}
 		}
 	}
 
@@ -69,7 +70,7 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
 		
-		if (collidedWith.tag == "Ground") {
+		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
 			jumping = false;
 		} else if (collidedWith.tag == "Key") {
 			++keyCount;
@@ -81,8 +82,5 @@ public class Character : MonoBehaviour {
 		health--;
 	}
 
-	void ResetGame(){
-		Application.LoadLevel ("_Scene_Main_NH");
-	}
 }
 
