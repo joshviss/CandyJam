@@ -2,6 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
+public enum Facing{
+	R,	// Right
+	L,	// Left
+	F	// Front
+};
+
 public class Character : MonoBehaviour {
 
 	static public Character S; //Singleton
@@ -10,23 +16,27 @@ public class Character : MonoBehaviour {
 	float speedLadder = 1.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
+	SpriteRenderer spRend;
 	BoxCollider body;
 	bool grounded;
 	int groundPhysicsLayerMask;
 	int ladderLayerMask;
 	int health = 30;
 	int damage = 1;
-	public int keyCount = 0;
-	public Canvas gameOver;
-	
 	bool onLadder = false;
 	bool collideWithLadder = false;
+	bool hasTorch = false;
 	Vector3 ladderStartPosition;
+	Facing face;
+	public int keyCount = 0;
+	public Canvas gameOver;
+	public Sprite spR, spL, spF, spRT, spLT, spFT;
 
 	// Use this for initialization
 	void Start () {
 		S = this;
 		rigid = GetComponent<Rigidbody> ();
+		spRend = GetComponent<SpriteRenderer> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
@@ -35,6 +45,7 @@ public class Character : MonoBehaviour {
 		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		noRotYZ = noRotZ | RigidbodyConstraints.FreezePositionY;
 
+		spRend.sprite = spR;
 		InvokeRepeating ("DecreaseHealth", 0f, 1f);
 	}
 
@@ -62,8 +73,13 @@ public class Character : MonoBehaviour {
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
 			vel.x = -speedX;
+			face = Facing.L;
 		} else if (Input.GetKey (KeyCode.RightArrow) && !Input.GetKey (KeyCode.LeftArrow)) {
 			vel.x = speedX;
+			face = Facing.R;
+		} else if (Input.GetKey (KeyCode.DownArrow) && !collideWithLadder) {
+			vel.x = 0;
+			face = Facing.F;
 		} else {
 			vel.x = 0;
 		}
@@ -99,6 +115,27 @@ public class Character : MonoBehaviour {
 
 		// Set the velocity
 		rigid.velocity = vel;
+
+		// Set the sprite in the SpriteRenderer
+		if (face == Facing.R) {
+			if (hasTorch) {
+				spRend.sprite = spRT;
+			} else {
+				spRend.sprite = spR;
+			}
+		} else if (face == Facing.L) {
+			if (hasTorch) {
+				spRend.sprite = spLT;
+			} else {
+				spRend.sprite = spL;
+			}
+		} else {
+			if (hasTorch) {
+				spRend.sprite = spFT;
+			} else {
+				spRend.sprite = spF;
+			}
+		}
 	}
 
 	void OnCollisionEnter(Collision other){
