@@ -24,6 +24,7 @@ public class Character : MonoBehaviour {
 	int damage = 1;
 	bool onLadder = false;
 	bool collideWithLadder = false;
+	bool ignitionEnabled = false;
 	Facing face;
 	public int health = 15;
 	public int healthCap = 15;
@@ -110,6 +111,23 @@ public class Character : MonoBehaviour {
 			rigid.useGravity = true;
 		}
 
+		// Ignition of stick
+		if (Input.GetKeyDown (KeyCode.E)) {
+			if (hasTorch) {
+				hasTorch = false;
+			}
+			else if (ignitionEnabled && hasStick) {
+				hasTorch = true;
+			}
+		}
+
+		// Damage = 0 if player has torch
+		if (hasTorch) {
+			damage = 0;
+		} else {
+			damage = 1;
+		}
+
 		// Set the velocity
 		rigid.velocity = vel;
 
@@ -149,6 +167,7 @@ public class Character : MonoBehaviour {
 		} else if (collidedWith.tag == "Light") {
 			damage = 0;
 			health = healthCap;
+			ignitionEnabled = true;
 		}
 	}
 
@@ -161,6 +180,7 @@ public class Character : MonoBehaviour {
 			onLadder = false;
 		} else if (collidedWith.tag == "Light") {
 			damage = 1;
+			ignitionEnabled = false;
 		}
 	}
 }
