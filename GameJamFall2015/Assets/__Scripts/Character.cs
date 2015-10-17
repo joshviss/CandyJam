@@ -14,6 +14,8 @@ public class Character : MonoBehaviour {
 	bool hitWall;
 	int groundPhysicsLayerMask;
 
+	int keyCount = 0;
+
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody> ();
@@ -53,8 +55,11 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
 		
-		if (collidedWith.tag == "Ground"){
+		if (collidedWith.tag == "Ground") {
 			jumping = false;
+		} else if (collidedWith.tag == "Key") {
+			++keyCount;
+			Destroy (collidedWith);
 		}
 	}
 
