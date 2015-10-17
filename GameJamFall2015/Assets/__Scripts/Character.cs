@@ -13,26 +13,24 @@ public class Character : MonoBehaviour {
 	static public Character S; //Singleton
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
+	BoxCollider body;
 	bool grounded;
 	int groundPhysicsLayerMask;
-<<<<<<< HEAD
 	int health = 30;
 	int damage = 1;
 	public int keyCount = 0;
 	public Canvas gameOver;
-=======
-
-	int health = 20;
-
-	int keyCount = 0;
+	
 	bool onLadder = false;
->>>>>>> origin/master
+	bool collideWithLadder = false;
+	Vector3 ladderStartPosition;
 
 	// Use this for initialization
 	void Start () {
 		S = this;
 		rigid = GetComponent<Rigidbody> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
+		body = GetComponent<BoxCollider> ();
 		gameOver.enabled = false;
 
 		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
@@ -58,6 +56,10 @@ public class Character : MonoBehaviour {
 	void FixedUpdate () {
 		Vector3 vel = rigid.velocity;
 
+		Vector3 loc = transform.position;
+		Debug.DrawRay (loc, Vector3.down * 0.5f, Color.blue);
+		grounded = (Physics.Raycast (loc, Vector3.down, 0.5f, groundPhysicsLayerMask));
+
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
 			vel.x = -speedX;
@@ -68,34 +70,30 @@ public class Character : MonoBehaviour {
 		}
 
 		// Jumping
-		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
+		if (Input.GetKeyDown (KeyCode.Space) && (grounded || onLadder)) {
 			vel.y = speedJump;
+		}
+
+		// Climbing a ladder
+		if (collideWithLadder) {
+			if (Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.DownArrow)) {
+				vel.y = speedLadder;
+				onLadder = true;
+			} else if (Input.GetKey (KeyCode.DownArrow) && !Input.GetKey (KeyCode.UpArrow)) {
+				vel.y = -speedLadder;
+				onLadder = true; 
+			} else {
+				vel.y = 0;
+			}
 		}
 
 		rigid.velocity = vel;
 	}
 
-	void OnCollisionEnter(Collision other){
-		GameObject collidedWith = other.gameObject;
-		
-<<<<<<< HEAD
-		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
-			grounded = true;
-		} 
-	}
-
 	void OnCollisionExit(Collision other){
 		GameObject collidedWith = other.gameObject;
 
-		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
-			grounded = false;
-=======
-		if (collidedWith.tag == "Ground") {
-			jumping = false;
-		} else if (collidedWith.tag == "Key") {
-			++keyCount;
-			Destroy (collidedWith);
-		} else if (collidedWith.tag == "Ladder") {
+		if (collidedWith.tag == "Ladder") {
 			if (Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				onLadder = true;
@@ -111,17 +109,21 @@ public class Character : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Ladder") {
-			if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				onLadder = true;
-				rigid.useGravity = false;
-				Vector3 vel = rigid.velocity;
-				vel.y = speedLadder;
-				rigid.velocity = vel;
-			}
->>>>>>> origin/master
+			collideWithLadder = true;
+			rigid.useGravity = false;
+			ladderStartPosition = transform.position;
+			ladderStartPosition.x = other.transform.position.x;
 		}
 	}
 
+	void OnTriggerExit(Collider other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ladder") {
+			collideWithLadder = false;
+			rigid.useGravity = true;
+			onLadder = false;
+		}
+	}
 }
 

@@ -7,13 +7,11 @@ public class LockedDoor : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Character") {
-			if (Character.S.keyCount != 0){
+			if (Character.S.keyCount > 0){
 				Character.S.keyCount--;
 				Destroy(gameObject);
 			}
 		}
-
-
 	}
 
 }
