@@ -64,7 +64,22 @@ public class Character : MonoBehaviour {
 			++keyCount;
 			Destroy (collidedWith);
 		} else if (collidedWith.tag == "Ladder") {
-			/*if (Input.GetKeyDown(KeyCode.UpArrow))*/
+			if (Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				onLadder = true;
+				rigid.useGravity = false;
+				Vector3 vel = rigid.velocity;
+				vel.y = speedLadder;
+				rigid.velocity = vel;
+			}
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ladder") {
+			if (Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				onLadder = true;
 				rigid.useGravity = false;
