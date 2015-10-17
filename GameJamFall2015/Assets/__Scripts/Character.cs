@@ -15,10 +15,18 @@ public class Character : MonoBehaviour {
 	RigidbodyConstraints noRotZ, noRotYZ;
 	bool grounded;
 	int groundPhysicsLayerMask;
+<<<<<<< HEAD
 	int health = 30;
 	int damage = 1;
 	public int keyCount = 0;
 	public Canvas gameOver;
+=======
+
+	int health = 20;
+
+	int keyCount = 0;
+	bool onLadder = false;
+>>>>>>> origin/master
 
 	// Use this for initialization
 	void Start () {
@@ -70,6 +78,7 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
 		
+<<<<<<< HEAD
 		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
 			grounded = true;
 		} 
@@ -80,6 +89,37 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
 			grounded = false;
+=======
+		if (collidedWith.tag == "Ground") {
+			jumping = false;
+		} else if (collidedWith.tag == "Key") {
+			++keyCount;
+			Destroy (collidedWith);
+		} else if (collidedWith.tag == "Ladder") {
+			if (Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				onLadder = true;
+				rigid.useGravity = false;
+				Vector3 vel = rigid.velocity;
+				vel.y = speedLadder;
+				rigid.velocity = vel;
+			}
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ladder") {
+			if (Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				onLadder = true;
+				rigid.useGravity = false;
+				Vector3 vel = rigid.velocity;
+				vel.y = speedLadder;
+				rigid.velocity = vel;
+			}
+>>>>>>> origin/master
 		}
 	}
 
