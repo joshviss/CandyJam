@@ -53,7 +53,7 @@ public class Character : MonoBehaviour {
 
 	void DecreaseHealth(){
 		health -= damage;
-		Debug.Log (health);
+		Debug.Log(health);
 	}
 
 	void Update(){
@@ -177,8 +177,20 @@ public class Character : MonoBehaviour {
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
 		} else if (collidedWith.tag == "Light") {
+			//Debug.Log("Light Trigger Enter");
 			damage = 0;
-			health = healthCap;
+			health = 15;
+			ignitionEnabled = true;
+		}
+	}
+
+	void OnTriggerStay(Collider other) {
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Light") {
+			//Debug.Log("Light trigger stay");
+			damage = 0;
+			health = 15;
 			ignitionEnabled = true;
 		}
 	}
@@ -191,6 +203,7 @@ public class Character : MonoBehaviour {
 			rigid.useGravity = true;
 			onLadder = false;
 		} else if (collidedWith.tag == "Light") {
+			//Debug.Log("Light trigger exit");
 			damage = 1;
 			ignitionEnabled = false;
 		}

@@ -15,8 +15,8 @@ public class Insanity : MonoBehaviour {
 		}
 	}
 	
-	// Fixed Update is called once per physics update
-	void FixedUpdate () {
+	// Update is called once per frame
+	void Update () {
 		int hp = Character.S.health;
 		int cap = Character.S.healthCap;
 
