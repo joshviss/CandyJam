@@ -26,9 +26,9 @@ public class Character : MonoBehaviour {
 	bool onLadder = false;
 	bool collideWithLadder = false;
 	bool hasTorch = false;
-	bool hasStick = false;
 	Facing face;
 	public int keyCount = 0;
+	public bool hasStick = false;
 	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
 
 	// Use this for initialization
