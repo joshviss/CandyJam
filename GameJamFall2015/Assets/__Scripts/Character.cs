@@ -67,8 +67,8 @@ public class Character : MonoBehaviour {
 		Vector3 vel = rigid.velocity;
 
 		Vector3 loc = transform.position;
-		Debug.DrawRay (loc, Vector3.down * 0.5f, Color.blue);
-		grounded = (Physics.Raycast (loc, Vector3.down, 0.5f, groundPhysicsLayerMask));
+		Debug.DrawRay (loc, Vector3.down * 1.25f, Color.blue);
+		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask));
 
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
