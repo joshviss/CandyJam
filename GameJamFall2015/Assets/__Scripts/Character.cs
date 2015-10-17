@@ -14,6 +14,8 @@ public class Character : MonoBehaviour {
 	bool hitWall;
 	int groundPhysicsLayerMask;
 
+	int health = 20;
+
 	int keyCount = 0;
 	bool onLadder = false;
 
