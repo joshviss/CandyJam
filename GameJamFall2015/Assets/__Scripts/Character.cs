@@ -11,7 +11,6 @@ public class Character : MonoBehaviour {
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	BoxCollider body;
-	SpriteRenderer spRend;
 	bool grounded;
 	int groundPhysicsLayerMask;
 	int ladderLayerMask;
@@ -28,7 +27,6 @@ public class Character : MonoBehaviour {
 	void Start () {
 		S = this;
 		rigid = GetComponent<Rigidbody> ();
-		spRend = GetComponent<SpriteRenderer> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
