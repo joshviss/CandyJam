@@ -104,6 +104,15 @@ public class Character : MonoBehaviour {
 		rigid.velocity = vel;
 	}
 
+	void OnCollisionEnter(Collision other){
+		GameObject collidedWith = other.gameObject;
+		
+		if (collidedWith.tag == "Key") {
+			Destroy (collidedWith);
+			++keyCount;
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		GameObject collidedWith = other.gameObject;
 
