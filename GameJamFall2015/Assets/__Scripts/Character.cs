@@ -4,13 +4,10 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour {
 
+	static public Character S; //Singleton
 	float speedX = 4.0f;
 	float speedJump = 8.0f;
 	float speedLadder = 4.0f;
-
-	bool ________________________________;
-
-	static public Character S; //Singleton
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	BoxCollider body;
@@ -102,15 +99,6 @@ public class Character : MonoBehaviour {
 
 		// Set the velocity
 		rigid.velocity = vel;
-	}
-
-	void OnCollisionEnter(Collision other){
-		GameObject collidedWith = other.gameObject;
-		
-		if (collidedWith.tag == "Key") {
-			Destroy (collidedWith);
-			++keyCount;
-		}
 	}
 
 	void OnTriggerEnter(Collider other){
