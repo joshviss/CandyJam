@@ -21,14 +21,15 @@ public class Character : MonoBehaviour {
 	bool grounded;
 	int groundPhysicsLayerMask;
 	int ladderLayerMask;
-	int health = 15;
 	int damage = 1;
 	bool onLadder = false;
 	bool collideWithLadder = false;
-	bool hasTorch = false;
-	bool hasStick = false;
 	Facing face;
+	public int health = 15;
+	public int healthCap = 15;
 	public int keyCount = 0;
+	public bool hasTorch = false;
+	public bool hasStick = false;
 	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
 
 	// Use this for initialization
@@ -147,6 +148,7 @@ public class Character : MonoBehaviour {
 			collideWithLadder = true;
 		} else if (collidedWith.tag == "Light") {
 			damage = 0;
+			health = healthCap;
 		}
 	}
 
