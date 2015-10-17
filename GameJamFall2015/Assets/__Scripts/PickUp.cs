@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Key : MonoBehaviour {
+public class PickUp : MonoBehaviour {
+
+	public string item;
 
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Character") {
-			Character.S.keyCount++;
+			if (item == "Key")
+			{
+				Character.S.keyCount++;
+			}
+			else if (item == "Stick")
+			{
+				Character.S.hasStick = true;
+			}
 			Destroy (gameObject);
 		}
 	}
