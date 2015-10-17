@@ -26,6 +26,8 @@ public class Character : MonoBehaviour {
 	bool collideWithLadder = false;
 	bool ignitionEnabled = false;
 	Facing face;
+	public float stickRemainTime = 0.0f;
+	public float stickBurnTimeCap = 5.0f;
 	public int health = 15;
 	public int healthCap = 15;
 	public int keyCount = 0;
@@ -118,7 +120,17 @@ public class Character : MonoBehaviour {
 			}
 			else if (ignitionEnabled && hasStick) {
 				hasTorch = true;
+				stickRemainTime = stickBurnTimeCap;
 			}
+		}
+
+		if (stickRemainTime >= 0.0f) {
+			if (hasTorch){
+				stickRemainTime -= Time.deltaTime;
+			}
+		} else {
+			hasTorch = false;
+			hasStick = false;
 		}
 
 		// Damage = 0 if player has torch
