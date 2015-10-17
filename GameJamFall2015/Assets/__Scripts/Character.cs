@@ -13,7 +13,10 @@ public class Character : MonoBehaviour {
 	bool jumping;
 	bool hitWall;
 	int groundPhysicsLayerMask;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 039c8c36e130fb1975ac9387483930b52e22e5a1
 	int health = 20;
 
 	int keyCount = 0;
