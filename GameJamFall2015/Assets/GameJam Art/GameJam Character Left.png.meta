@@ -3,7 +3,8 @@ guid: 0619abb3b9227a44da396316f7cc3f7e
 timeCreated: 1445104305
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: GameJam Character Left_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
