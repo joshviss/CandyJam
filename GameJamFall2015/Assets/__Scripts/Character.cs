@@ -50,6 +50,7 @@ public class Character : MonoBehaviour {
 
 	void DecreaseHealth(){
 		health -= damage;
+		Debug.Log (health);
 	}
 
 	void Update(){
@@ -142,6 +143,8 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
+		} else if (collidedWith.tag == "Light") {
+			damage = 0;
 		}
 	}
 
@@ -152,6 +155,8 @@ public class Character : MonoBehaviour {
 			collideWithLadder = false;
 			rigid.useGravity = true;
 			onLadder = false;
+		} else if (collidedWith.tag == "Light") {
+			damage = 1;
 		}
 	}
 }

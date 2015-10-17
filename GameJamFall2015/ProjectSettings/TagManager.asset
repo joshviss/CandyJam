@@ -13,6 +13,7 @@ TagManager:
   - Torch
   - Door
   - Locked Door
+  - Light
   layers:
   - Default
   - TransparentFX
