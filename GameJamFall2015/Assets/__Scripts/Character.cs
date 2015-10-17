@@ -13,6 +13,7 @@ public class Character : MonoBehaviour {
 	bool jumping;
 	bool hitWall;
 	int groundPhysicsLayerMask;
+	int health = 20;
 
 	// Use this for initialization
 	void Start () {
