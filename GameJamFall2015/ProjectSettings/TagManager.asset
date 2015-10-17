@@ -11,6 +11,8 @@ TagManager:
   - Key
   - Stick
   - Torch
+  - Door
+  - Locked Door
   layers:
   - Default
   - TransparentFX

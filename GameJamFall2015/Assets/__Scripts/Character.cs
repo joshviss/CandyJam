@@ -9,21 +9,32 @@ public class Character : MonoBehaviour {
 	float speedLadder = 4.0f;
 
 	bool ________________________________;
-	
+
+	static public Character S; //Singleton
 	Rigidbody rigid;
-	bool jumping;
-	bool hitWall;
+	RigidbodyConstraints noRotZ, noRotYZ;
+	bool grounded;
 	int groundPhysicsLayerMask;
 	int health = 30;
-	int keyCount = 0;
+	int damage = 1;
+	public int keyCount = 0;
 	public Canvas gameOver;
 
 	// Use this for initialization
 	void Start () {
+		S = this;
 		rigid = GetComponent<Rigidbody> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
-		InvokeRepeating ("DecreaseHealth", 0f, 1f);
 		gameOver.enabled = false;
+
+		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+		noRotYZ = noRotZ | RigidbodyConstraints.FreezePositionY;
+
+		InvokeRepeating ("DecreaseHealth", 0f, 1f);
+	}
+
+	void DecreaseHealth(){
+		health -= damage;
 	}
 
 	void Update(){
@@ -38,30 +49,19 @@ public class Character : MonoBehaviour {
 	// FixedUpdate is called once per physics update
 	void FixedUpdate () {
 		Vector3 vel = rigid.velocity;
-	
-		//Debug.Log(health);
-
-		/*
-		Vector3 bodyLoc = transform.position;
-		Debug.DrawRay (bodyLoc, transform.right * 0.3f);
-		hitWall = (Physics.Raycast (bodyLoc, transform.right, 0.3f, groundPhysicsLayerMask)
-		           || Physics.Raycast (bodyLoc + Vector3.up * 0.3f, transform.right, 0.3f, groundPhysicsLayerMask)
-		           || Physics.Raycast (bodyLoc + Vector3.down * 0.3f, transform.right, 0.3f, groundPhysicsLayerMask));
-		*/
 
 		// Left and Right Movement
-		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow) && !hitWall) {
+		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
 			vel.x = -speedX;
-		} else if (Input.GetKey (KeyCode.RightArrow) && !Input.GetKey (KeyCode.LeftArrow) && !hitWall) {
+		} else if (Input.GetKey (KeyCode.RightArrow) && !Input.GetKey (KeyCode.LeftArrow)) {
 			vel.x = speedX;
 		} else {
 			vel.x = 0;
 		}
 
 		// Jumping
-		if (Input.GetKeyDown (KeyCode.Space) && !jumping) {
+		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
 			vel.y = speedJump;
-			jumping = true;
 		}
 
 		rigid.velocity = vel;
@@ -71,15 +71,16 @@ public class Character : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 		
 		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
-			jumping = false;
-		} else if (collidedWith.tag == "Key") {
-			++keyCount;
-			Destroy (collidedWith);
-		}
+			grounded = true;
+		} 
 	}
 
-	void DecreaseHealth(){
-		health--;
+	void OnCollisionExit(Collision other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ground" || collidedWith.tag == "Boxes" || collidedWith.tag == "Table") {
+			grounded = false;
+		}
 	}
 
 }
