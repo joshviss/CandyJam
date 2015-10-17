@@ -16,6 +16,7 @@ public class Character : MonoBehaviour {
 	BoxCollider body;
 	bool grounded;
 	int groundPhysicsLayerMask;
+	int ladderLayerMask;
 	int health = 30;
 	int damage = 1;
 	public int keyCount = 0;
@@ -30,6 +31,7 @@ public class Character : MonoBehaviour {
 		S = this;
 		rigid = GetComponent<Rigidbody> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
+		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
 		gameOver.enabled = false;
 
@@ -70,39 +72,36 @@ public class Character : MonoBehaviour {
 		}
 
 		// Jumping
-		if (Input.GetKeyDown (KeyCode.Space) && (grounded || onLadder)) {
+		if (Input.GetKeyDown (KeyCode.Space) && grounded && !onLadder) {
 			vel.y = speedJump;
 		}
 
-		// Climbing a ladder
+		// Grab onto ladder
 		if (collideWithLadder) {
+			if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.DownArrow)) {
+				onLadder = true;
+			}
+		}
+
+		// Movement while on ladder
+		if (onLadder) {
 			if (Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.DownArrow)) {
 				vel.y = speedLadder;
-				onLadder = true;
 			} else if (Input.GetKey (KeyCode.DownArrow) && !Input.GetKey (KeyCode.UpArrow)) {
 				vel.y = -speedLadder;
-				onLadder = true; 
 			} else {
 				vel.y = 0;
 			}
 		}
 
-		rigid.velocity = vel;
-	}
-
-	void OnCollisionExit(Collision other){
-		GameObject collidedWith = other.gameObject;
-
-		if (collidedWith.tag == "Ladder") {
-			if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				onLadder = true;
-				rigid.useGravity = false;
-				Vector3 vel = rigid.velocity;
-				vel.y = speedLadder;
-				rigid.velocity = vel;
-			}
+		// Jumping down ladder
+		if (onLadder && Input.GetKeyDown (KeyCode.Space)) {
+			onLadder = false;
+			rigid.useGravity = true;
 		}
+
+		// Set the velocity
+		rigid.velocity = vel;
 	}
 
 	void OnTriggerEnter(Collider other){
