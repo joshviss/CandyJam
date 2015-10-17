@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour {
 
 	static public Character S; //Singleton
-	float speedX = 4.0f;
-	float speedJump = 8.0f;
-	float speedLadder = 4.0f;
+	float speedX = 2.0f;
+	float speedJump = 5.0f;
+	float speedLadder = 1.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	BoxCollider body;
@@ -106,9 +106,9 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
-			rigid.useGravity = false;
-			ladderStartPosition = transform.position;
-			ladderStartPosition.x = other.transform.position.x;
+			//rigid.useGravity = false;
+			//ladderStartPosition = transform.position;
+			//ladderStartPosition.x = other.transform.position.x;
 		}
 	}
 
