@@ -158,10 +158,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1279053870}
   m_RootOrder: 0
---- !u!1 &49480763 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 119392, guid: 27141ca3d5c8841febf885104737dd4a, type: 2}
-  m_PrefabInternal: {fileID: 622055962}
 --- !u!4 &88408369 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480824, guid: 73762ebacba7459439c57eef028485c7, type: 2}
@@ -535,14 +531,6 @@ Prefab:
     - target: {fileID: 419458, guid: 27141ca3d5c8841febf885104737dd4a, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479400, guid: 27141ca3d5c8841febf885104737dd4a, type: 2}
-      propertyPath: candleFlame
-      value: 
-      objectReference: {fileID: 49480763}
-    - target: {fileID: 119392, guid: 27141ca3d5c8841febf885104737dd4a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27141ca3d5c8841febf885104737dd4a, type: 2}

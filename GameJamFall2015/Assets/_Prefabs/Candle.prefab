@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &150060
 GameObject:
   m_ObjectHideFlags: 1
@@ -273,7 +273,7 @@ MonoBehaviour:
   isLit: 0
   candleBurnTimeCap: 100
   candleBurnRemainTime: 0
-  candleFlame: {fileID: 0}
+  candleFlame: {fileID: 119392}
 --- !u!135 &13560558
 SphereCollider:
   m_ObjectHideFlags: 1
