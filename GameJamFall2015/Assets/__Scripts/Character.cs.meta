@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 18b887e463f530f43ab5e1250a9c8521
-timeCreated: 1445112480
+timeCreated: 1445204025
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -14,6 +14,8 @@ MonoImporter:
   - spRS: {fileID: 21300000, guid: d54438522bceb304fa5f2eb0822d71e2, type: 3}
   - spLS: {fileID: 21300000, guid: 4aa979fdf82ed0d4ab42a8c2661cdf73, type: 3}
   - spFS: {fileID: 21300002, guid: a942743dc09c2004c9c993590e8b0c3f, type: 3}
+  - spBack: {fileID: 21300000, guid: 4316698f7f842a54798ac1fb9532c0ae, type: 3}
+  - stickTorch: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -876,6 +876,11 @@ Prefab:
       propertyPath: stickBurnTimeCap
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 11424066, guid: a01a9bd06b66d6849a3f6e90f81edfc9, type: 2}
+      propertyPath: spBack
+      value: 
+      objectReference: {fileID: 21300000, guid: 4316698f7f842a54798ac1fb9532c0ae,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a01a9bd06b66d6849a3f6e90f81edfc9, type: 2}
   m_IsPrefabParent: 0
