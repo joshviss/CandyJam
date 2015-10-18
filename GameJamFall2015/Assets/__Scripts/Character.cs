@@ -114,7 +114,7 @@ public class Character : MonoBehaviour {
 		}
 
 		// Ignition of stick
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (Input.GetKeyDown (KeyCode.S)) {
 			if (hasTorch) {
 				hasTorch = false;
 			}
