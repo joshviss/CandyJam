@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openImage: {fileID: 21300000, guid: 56576a4bd1a094df990ad35353736aab, type: 3}
+  nextLevel: _Scene_Level1
 --- !u!65 &712850537
 BoxCollider:
   m_ObjectHideFlags: 0

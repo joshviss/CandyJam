@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level0Gate : MonoBehaviour {
+public class LevelGate : MonoBehaviour {
 
 	public Sprite openImage;
+	public string nextLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,7 @@ public class Level0Gate : MonoBehaviour {
 				--Character.S.keyCount;
 				GetComponent<SpriteRenderer>().sprite = openImage;
 				StartCoroutine(Example());
-				Application.LoadLevel("_Scene_Level1");
+				Application.LoadLevel(nextLevel);
 			}
 		}
 	}

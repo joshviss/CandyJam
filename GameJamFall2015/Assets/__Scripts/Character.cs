@@ -21,6 +21,7 @@ public class Character : MonoBehaviour {
 	BoxCollider body;
 	bool grounded;
 	int groundPhysicsLayerMask;
+	int boxPhysicsLayerMask;
 	int ladderLayerMask;
 	int damage = 1;
 	bool onLadder = false;
@@ -44,6 +45,7 @@ public class Character : MonoBehaviour {
 		rigid = GetComponent<Rigidbody> ();
 		spRend = GetComponent<SpriteRenderer> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
+		boxPhysicsLayerMask = LayerMask.GetMask("Boxes");
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
 		stickTorch = transform.Find("Torch").transform.Find("TorchPointLight").GetComponent<Light>();
@@ -72,7 +74,8 @@ public class Character : MonoBehaviour {
 
 		Vector3 loc = transform.position;
 		Debug.DrawRay (loc, Vector3.down * 1.25f, Color.blue);
-		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask));
+		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask)) ||
+			(Physics.Raycast (loc, Vector3.down, 1.25f, boxPhysicsLayerMask));
 
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
