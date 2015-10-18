@@ -31,6 +31,7 @@ public class Character : MonoBehaviour {
 	public int health = 15;
 	public int healthCap = 15;
 	public int keyCount = 0;
+	public int stickCount = 0;
 	public bool hasTorch = false;
 	public bool hasStick = false;
 	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
