@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 11456182}
   m_Layer: 10
   m_Name: RedFireLight
-  m_TagString: Torch
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - 108: {fileID: 10857336}
   - 135: {fileID: 13577812}
   m_Layer: 10
-  m_Name: TorchPointLight
+  m_Name: RedPointLight
   m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.57921028, y: 3.04758835, z: 0}
+  m_LocalPosition: {x: 10, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479654}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb49de0e0d870fb4199ef295ea80d66c, type: 3}
   m_Name: 
@@ -210,7 +210,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .200000003
+  m_Radius: 2
   m_Center: {x: 0, y: .150000006, z: 0}
 --- !u!135 &13577812
 SphereCollider:
@@ -222,7 +222,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13579572
 SphereCollider:
@@ -231,10 +231,10 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19809668
 ParticleSystem:

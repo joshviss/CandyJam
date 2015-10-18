@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public enum Facing{
 	R,	// Right
 	L,	// Left
-	F	// Front
+	F,	// Front
+	B	// Back
 };
 
 public class Character : MonoBehaviour {
@@ -13,13 +14,14 @@ public class Character : MonoBehaviour {
 	static public Character S; //Singleton
 	float speedX = 2.0f;
 	float speedJump = 6f;
-	float speedLadder = 1.0f;
+	float speedLadder = 2.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	SpriteRenderer spRend;
 	BoxCollider body;
 	bool grounded;
 	int groundPhysicsLayerMask;
+	int boxPhysicsLayerMask;
 	int ladderLayerMask;
 	int damage = 1;
 	bool onLadder = false;
@@ -34,7 +36,7 @@ public class Character : MonoBehaviour {
 	public int stickCount = 0;
 	public bool hasTorch = false;
 	public bool hasStick = false;
-	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
+	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS, spBack;
 	public Light stickTorch;
 
 	// Use this for initialization
@@ -43,6 +45,7 @@ public class Character : MonoBehaviour {
 		rigid = GetComponent<Rigidbody> ();
 		spRend = GetComponent<SpriteRenderer> ();
 		groundPhysicsLayerMask = LayerMask.GetMask ("Ground");
+		boxPhysicsLayerMask = LayerMask.GetMask("Boxes");
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
 		stickTorch = transform.Find("Torch").transform.Find("TorchPointLight").GetComponent<Light>();
@@ -71,7 +74,8 @@ public class Character : MonoBehaviour {
 
 		Vector3 loc = transform.position;
 		Debug.DrawRay (loc, Vector3.down * 1.25f, Color.blue);
-		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask));
+		grounded = (Physics.Raycast (loc, Vector3.down, 1.25f, groundPhysicsLayerMask)) ||
+			(Physics.Raycast (loc, Vector3.down, 1.25f, boxPhysicsLayerMask));
 
 		// Left and Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow)) {
@@ -101,6 +105,7 @@ public class Character : MonoBehaviour {
 
 		// Movement while on ladder
 		if (onLadder) {
+			face = Facing.B;
 			if (Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.DownArrow)) {
 				vel.y = speedLadder;
 			} else if (Input.GetKey (KeyCode.DownArrow) && !Input.GetKey (KeyCode.UpArrow)) {
@@ -161,27 +166,29 @@ public class Character : MonoBehaviour {
 		if (face == Facing.R) {
 			if (hasTorch) {
 				spRend.sprite = spRT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spRS;
-			}else {
+			} else {
 				spRend.sprite = spR;
 			}
 		} else if (face == Facing.L) {
 			if (hasTorch) {
 				spRend.sprite = spLT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spLS;
-			}else {
+			} else {
 				spRend.sprite = spL;
 			}
-		} else {
+		} else if (face == Facing.F) {
 			if (hasTorch) {
 				spRend.sprite = spFT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spFS;
-			}else {
+			} else {
 				spRend.sprite = spF;
 			}
+		} else {
+			spRend.sprite = spBack;
 		}
 	}
 
@@ -198,12 +205,14 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
+		} else if (collidedWith.tag == "Fire"){
+			Application.LoadLevel("_Scene_GameOver");
 		} else if (collidedWith.tag == "Light") {
 			//Debug.Log("Light Trigger Enter");
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
-		}
+		} 
 	}
 
 	void OnTriggerStay(Collider other) {
@@ -214,7 +223,7 @@ public class Character : MonoBehaviour {
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
-		}
+		} 
 	}
 
 	void OnTriggerExit(Collider other){
