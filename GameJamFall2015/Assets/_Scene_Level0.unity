@@ -970,11 +970,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425822, guid: 6cca9ebd41052834e9bebbecf581732e, type: 2}
       propertyPath: m_LocalScale.x
-      value: .75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425822, guid: 6cca9ebd41052834e9bebbecf581732e, type: 2}
       propertyPath: m_LocalScale.y
-      value: .75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21221394, guid: 6cca9ebd41052834e9bebbecf581732e, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -982,6 +982,10 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 4de63935dcf0fcc40b22ee8357d92963, type: 2}
     - target: {fileID: 11492444, guid: 6cca9ebd41052834e9bebbecf581732e, type: 2}
       propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 425822, guid: 6cca9ebd41052834e9bebbecf581732e, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
