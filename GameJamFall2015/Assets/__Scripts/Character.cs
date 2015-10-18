@@ -203,6 +203,8 @@ public class Character : MonoBehaviour {
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
+		} else if (collidedWith.tag == "Fire"){
+			damage = 3;
 		}
 	}
 
@@ -214,6 +216,8 @@ public class Character : MonoBehaviour {
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
+		} else if (collidedWith.tag == "Fire"){
+			damage = 3;
 		}
 	}
 
