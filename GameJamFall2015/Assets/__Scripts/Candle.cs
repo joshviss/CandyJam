@@ -46,7 +46,7 @@ public class Candle : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 		
 		if (collidedWith.tag == "Character") {
-			if (Input.GetKeyDown(KeyCode.E) && Character.S.hasTorch) {
+			if (Input.GetKeyDown(KeyCode.S) && Character.S.hasTorch) {
 				isLit = true;
 				candleFlame.SetActive(true);
 				//candleBurnRemainTime = candleBurnTimeCap;
