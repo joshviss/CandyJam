@@ -132,10 +132,18 @@ public class Character : MonoBehaviour {
 		if (stickRemainTime >= 0.0f) {
 			if (hasTorch){
 				stickRemainTime -= Time.deltaTime;
+				if (stickRemainTime <= 0.0f)
+				{
+					--stickCount;
+				}
 			}
 		} else {
 			hasTorch = false;
-			hasStick = false;
+			if (stickCount <= 0)
+			{
+				hasStick = false;
+				stickCount = 0;
+			}
 			stickTorch.enabled = false;
 		}
 
