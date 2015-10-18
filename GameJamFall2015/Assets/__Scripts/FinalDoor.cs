@@ -9,7 +9,7 @@ public class FinalDoor : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.UpArrow)) {
 			if (Character.S.keyCount > 0 && atDoor){
-				Application.LoadLevel ("_Scene_Win");
+				Application.LoadLevel ("_Scene_Title");
 			}
 		}
 	}

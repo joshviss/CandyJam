@@ -20,7 +20,7 @@ public class Title : MonoBehaviour {
 	void Update(){
 		if (Input.anyKeyDown) {
 			FadeOut();
-			Application.LoadLevel ("_Scene_Main");
+			Application.LoadLevel ("_Scene_Main_JV");
 		}
 	}
 
