@@ -195,6 +195,7 @@ MonoBehaviour:
   health: 15
   healthCap: 15
   keyCount: 0
+  stickCount: 0
   hasTorch: 0
   hasStick: 0
   spR: {fileID: 21300000, guid: 19f342a5a6adf3442b533937f9aca979, type: 3}
@@ -274,7 +275,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bac535625fac63349a9b65f95d7b57be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21273934
@@ -315,6 +316,10 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 4ea3fe56601d9994c9da734355ccc922,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143496}

@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/_Scene_GameOver.unity
   - enabled: 1
     path: Assets/_Scene_Main.unity
+  - enabled: 1
+    path: Assets/_Scene_Level0.unity
+  - enabled: 1
+    path: Assets/_Scene_Level1.unity
