@@ -5,7 +5,7 @@ public class Monster : MonoBehaviour {
 
 	static public Monster S; // Singleton
 	SpriteRenderer spRend;
-	float speed = 2f;
+	float speed = 1.5f;
 	Vector3 charPos;
 	public Sprite spR, spL;
 	public bool awake;
@@ -27,6 +27,7 @@ public class Monster : MonoBehaviour {
 	void Update(){
 		if (awake) {
 			Vector3 charPos = Character.S.transform.position;
+			Vector3 newPos = new Vector3 (charPos.x, charPos.y + 1f, 0);
 		
 			if (charPos.x - transform.position.x >= 0) {
 				spRend.sprite = spR;
@@ -34,7 +35,7 @@ public class Monster : MonoBehaviour {
 				spRend.sprite = spL;
 			}
 		
-			transform.position = Vector3.MoveTowards (transform.position, charPos, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards (transform.position, newPos, speed * Time.deltaTime);
 	
 		}
 	}

@@ -198,14 +198,14 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
+		} else if (collidedWith.tag == "Fire"){
+			Application.LoadLevel("_Scene_GameOver");
 		} else if (collidedWith.tag == "Light") {
 			//Debug.Log("Light Trigger Enter");
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
-		} else if (collidedWith.tag == "Fire"){
-			damage = 3;
-		}
+		} 
 	}
 
 	void OnTriggerStay(Collider other) {
@@ -216,9 +216,7 @@ public class Character : MonoBehaviour {
 			damage = 0;
 			health = 15;
 			ignitionEnabled = true;
-		} else if (collidedWith.tag == "Fire"){
-			damage = 3;
-		}
+		} 
 	}
 
 	void OnTriggerExit(Collider other){
