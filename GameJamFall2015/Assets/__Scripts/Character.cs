@@ -14,7 +14,7 @@ public class Character : MonoBehaviour {
 	static public Character S; //Singleton
 	float speedX = 2.0f;
 	float speedJump = 6f;
-	float speedLadder = 1.0f;
+	float speedLadder = 2.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	SpriteRenderer spRend;
