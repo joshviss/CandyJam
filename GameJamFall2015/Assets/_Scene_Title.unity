@@ -399,7 +399,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press any button to start
+  m_Text: A - Jump; S - Light candles; E - Light torch
 --- !u!222 &1172801522
 CanvasRenderer:
   m_ObjectHideFlags: 0
