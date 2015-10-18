@@ -17,6 +17,7 @@ TagManager:
   - Portal
   - Vision
   - Ghost
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Ladder
   - Character
   - Ghost
-  - 
+  - Fire
   - 
   - 
   - 
