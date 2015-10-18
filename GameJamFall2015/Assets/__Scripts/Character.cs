@@ -205,7 +205,7 @@ public class Character : MonoBehaviour {
 
 		if (collidedWith.tag == "Ladder") {
 			collideWithLadder = true;
-		} else if (collidedWith.tag == "Fire"){
+		} else if (collidedWith.tag == "InstaDeath"){
 			Application.LoadLevel("_Scene_GameOver");
 		} else if (collidedWith.tag == "Light") {
 			//Debug.Log("Light Trigger Enter");

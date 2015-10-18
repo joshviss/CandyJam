@@ -18,6 +18,7 @@ TagManager:
   - Vision
   - Ghost
   - Fire
+  - InstaDeath
   layers:
   - Default
   - TransparentFX
