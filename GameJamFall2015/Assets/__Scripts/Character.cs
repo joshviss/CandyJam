@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public enum Facing{
 	R,	// Right
 	L,	// Left
-	F	// Front
+	F,	// Front
+	B	// Back
 };
 
 public class Character : MonoBehaviour {
@@ -13,7 +14,7 @@ public class Character : MonoBehaviour {
 	static public Character S; //Singleton
 	float speedX = 2.0f;
 	float speedJump = 6f;
-	float speedLadder = 1.0f;
+	float speedLadder = 2.0f;
 	Rigidbody rigid;
 	RigidbodyConstraints noRotZ, noRotYZ;
 	SpriteRenderer spRend;
@@ -34,7 +35,7 @@ public class Character : MonoBehaviour {
 	public int stickCount = 0;
 	public bool hasTorch = false;
 	public bool hasStick = false;
-	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS;
+	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS, spBack;
 	public Light stickTorch;
 
 	// Use this for initialization
@@ -101,6 +102,7 @@ public class Character : MonoBehaviour {
 
 		// Movement while on ladder
 		if (onLadder) {
+			face = Facing.B;
 			if (Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.DownArrow)) {
 				vel.y = speedLadder;
 			} else if (Input.GetKey (KeyCode.DownArrow) && !Input.GetKey (KeyCode.UpArrow)) {
@@ -161,27 +163,29 @@ public class Character : MonoBehaviour {
 		if (face == Facing.R) {
 			if (hasTorch) {
 				spRend.sprite = spRT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spRS;
-			}else {
+			} else {
 				spRend.sprite = spR;
 			}
 		} else if (face == Facing.L) {
 			if (hasTorch) {
 				spRend.sprite = spLT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spLS;
-			}else {
+			} else {
 				spRend.sprite = spL;
 			}
-		} else {
+		} else if (face == Facing.F) {
 			if (hasTorch) {
 				spRend.sprite = spFT;
-			} else if (hasStick){
+			} else if (hasStick) {
 				spRend.sprite = spFS;
-			}else {
+			} else {
 				spRend.sprite = spF;
 			}
+		} else {
+			spRend.sprite = spBack;
 		}
 	}
 

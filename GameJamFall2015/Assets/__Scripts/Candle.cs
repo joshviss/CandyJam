@@ -44,8 +44,9 @@ public class Candle : MonoBehaviour {
 
 	void OnTriggerStay(Collider other) {
 		GameObject collidedWith = other.gameObject;
-		
+
 		if (collidedWith.tag == "Character") {
+			//print("HelloCandle?");
 			if (Input.GetKeyDown(KeyCode.S) && Character.S.hasTorch) {
 				isLit = true;
 				candleFlame.SetActive(true);
