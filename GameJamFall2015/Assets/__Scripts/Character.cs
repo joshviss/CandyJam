@@ -171,6 +171,14 @@ public class Character : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter(Collision other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ghost") {
+			Application.LoadLevel ("_Scene_GameOver");
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		GameObject collidedWith = other.gameObject;
 
