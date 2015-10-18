@@ -14,6 +14,7 @@ TagManager:
   - Door
   - Locked Door
   - Light
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Door
+    uniqueID: 2323861799
     locked: 0
