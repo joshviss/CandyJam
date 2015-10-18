@@ -13,8 +13,8 @@ public class Torch : MonoBehaviour {
 	public float maxLightIntensity = 8f;
 
 	Rigidbody rigid;
-	SpriteRenderer spRend;
-	Color torchColor;
+	//SpriteRenderer spRend;
+	//Color torchColor;
 	Light pointLight;
 	public GameObject characterObject;
 
@@ -25,11 +25,11 @@ public class Torch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody>();
-		spRend = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+		//spRend = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 		pointLight = transform.Find("TorchPointLight").GetComponent<Light>();
 		characterObject = GameObject.Find("Character");
 
-		torchColor = spRend.color;
+		//torchColor = spRend.color;
 
 		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		noRotYZ = noRotZ | RigidbodyConstraints.FreezePositionY;
