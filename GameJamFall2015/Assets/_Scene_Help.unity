@@ -116,7 +116,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -63, y: 90}
+  m_AnchoredPosition: {x: -63, y: 46}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &90524694
@@ -150,10 +150,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "---- Move with the arrow keys\n---- Press 'A' to Jump\n---- Press 'S' to
-    Light a Stick with a Lanturn\n        ---- Must be within Lanturn's Range\n----
-    Press 'S' to Light a Candle\n        ---- Must have a lit Stick\n---- Press '1'
-    - '4'  (Number Keys) to Jump to that Level\n---- Press 'I' (Letter) to Get a Stick"
+  m_Text: "---- Move with the arrow keys\n---- Press the Up Arrow to Go Through Stairs
+    and Doors\n---- Press 'A' to Jump\n---- Press 'S' to Light a Stick with a Lanturn\n
+    \       ---- Must be within Lanturn's Range\n---- Press 'S' to Light a Candle\n
+    \       ---- Must have a lit Stick\n---- Press '1' - '4'  (Number Keys) to Jump
+    to that Level\n---- Press 'I' (Letter) to Get a Stick (Cheating)"
 --- !u!222 &90524695
 CanvasRenderer:
   m_ObjectHideFlags: 0
