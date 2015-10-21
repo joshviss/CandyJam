@@ -7,7 +7,18 @@ public class DestroyMonster : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Ghost") {
+			print("what");
 			Monster.S.scream.Stop ();
+			Destroy(collidedWith);
+		}
+	}
+
+	void OnCollisionEnter(Collision other) {
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Ghost") {
+			print("why");
+			Monster.S.scream.Stop();
 			Destroy(collidedWith);
 		}
 	}
