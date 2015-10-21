@@ -30,7 +30,7 @@ public class Character : MonoBehaviour {
 	Facing face;
 	Text UI;
 	AudioSource dying;
-	bool playing;
+	bool playing = false;
 	public float stickRemainTime = 0.0f;
 	public float stickBurnTimeCap = 5.0f;
 	public int health = 15;
