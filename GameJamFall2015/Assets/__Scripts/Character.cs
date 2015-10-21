@@ -89,7 +89,7 @@ public class Character : MonoBehaviour {
 		}
 
 		// Play sounds if health is lower than certain amount
-		if (health <= healthCap * 0.8) {
+		if (health < 15) {
 			dying.Play ();
 		} else {
 			dying.Stop ();
