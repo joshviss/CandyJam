@@ -28,7 +28,7 @@ public class Character : MonoBehaviour {
 	bool collideWithLadder = false;
 	bool ignitionEnabled = false;
 	Facing face;
-	Text stickUI;
+	Text UI;
 	public float stickRemainTime = 0.0f;
 	public float stickBurnTimeCap = 5.0f;
 	public int health = 15;
@@ -39,7 +39,7 @@ public class Character : MonoBehaviour {
 	public bool hasStick = false;
 	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS, spBack;
 	public Light stickTorch;
-	public GameObject StickUI_Prefab;
+	public GameObject UI_Prefab;
 
 	// Use this for initialization
 	void Start () {
@@ -57,16 +57,16 @@ public class Character : MonoBehaviour {
 
 		spRend.sprite = spR;
 
-		GameObject stickUIGO = Instantiate<GameObject> (StickUI_Prefab);
-		stickUI = stickUIGO.GetComponentInChildren<Text> ();
-		stickUI.enabled = true;
+		GameObject UIGO = Instantiate<GameObject> (UI_Prefab);
+		UI = UIGO.GetComponentInChildren<Text> ();
+		UI.enabled = true;
 		ShowGT ();
 
 		InvokeRepeating ("DecreaseHealth", 0f, 1f);
 	}
 
 	void ShowGT(){
-		stickUI.text = "Sticks: " + stickCount;
+		UI.text = "Sticks: " + stickCount + "     Keys: " + keyCount;
 	}
 
 	void DecreaseHealth(){

@@ -209,7 +209,7 @@ MonoBehaviour:
   spFS: {fileID: 21300002, guid: a942743dc09c2004c9c993590e8b0c3f, type: 3}
   spBack: {fileID: 21300000, guid: 4316698f7f842a54798ac1fb9532c0ae, type: 3}
   stickTorch: {fileID: 0}
-  StickUI_Prefab: {fileID: 144502, guid: df797ec54281b7d4691e3dd0d682c501, type: 2}
+  UI_Prefab: {fileID: 144502, guid: df797ec54281b7d4691e3dd0d682c501, type: 2}
 --- !u!114 &11488896
 MonoBehaviour:
   m_ObjectHideFlags: 1
