@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 472182}
   - 212: {fileID: 21246290}
   m_Layer: 8
-  m_Name: Bookcase_Prefab
+  m_Name: BookcaseWithTopCollision
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
