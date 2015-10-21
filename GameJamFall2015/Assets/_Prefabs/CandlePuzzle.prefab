@@ -1202,6 +1202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b5aa92700aea047a9389b9725942b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  error: {fileID: 8300000, guid: 4a60d5a85e277414e8db3eb04e9f4c28, type: 3}
+  success: {fileID: 8300000, guid: 98e4f9d230988394ca6192f52fc1177a, type: 3}
   Key: {fileID: 169804}
   Candle1: {fileID: 166704}
   Candle2: {fileID: 182720}
@@ -9599,6 +9601,14 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 8300000, guid: 98e4f9d230988394ca6192f52fc1177a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: error
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a60d5a85e277414e8db3eb04e9f4c28, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147804}
