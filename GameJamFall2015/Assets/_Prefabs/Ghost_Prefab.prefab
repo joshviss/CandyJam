@@ -65,14 +65,14 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fa1c3be5de62c4c42afdd8c21f5e15cb, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 92a263850b583b749a6d01d66dbb8d95, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -142,6 +142,7 @@ MonoBehaviour:
   awake: 0
   fire: {fileID: 0}
   torches: {fileID: 0}
+  scream: {fileID: 0}
 --- !u!212 &21215556
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -178,7 +179,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: fa1c3be5de62c4c42afdd8c21f5e15cb, type: 3}
+      objectReference: {fileID: 8300000, guid: 92a263850b583b749a6d01d66dbb8d95, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f0feb91a9bc5e84f86bd8c21a93fbc5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128214}

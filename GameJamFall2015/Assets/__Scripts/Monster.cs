@@ -5,18 +5,21 @@ public class Monster : MonoBehaviour {
 
 	static public Monster S; // Singleton
 	SpriteRenderer spRend;
-	AudioSource scream;
 	float speed = 1.75f;
 	Vector3 charPos;
 	public Sprite spR, spL;
 	public bool awake;
 	public GameObject fire, torches;
+	public AudioSource scream;
+
+	void Awake(){
+		scream = GetComponent<AudioSource>();
+	}
 
 	// Use this for initialization
 	void Start () {
 		S = this;
 		spRend = GetComponent<SpriteRenderer> ();
-		scream = GetComponent<AudioSource>();
 		scream.playOnAwake = false;
 		awake = false;
 	}

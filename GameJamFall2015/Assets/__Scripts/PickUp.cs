@@ -6,7 +6,8 @@ public class PickUp : MonoBehaviour {
 	public string item;
 	public int amount;
 	public Light keyLight;
-
+	public AudioClip key, stick;
+	
 	// Use this for initialization
 	void Start() {
 		if (item == "Key") {
@@ -22,11 +23,13 @@ public class PickUp : MonoBehaviour {
 			if (item == "Key")
 			{
 				Character.S.keyCount += amount;
+				AudioSource.PlayClipAtPoint(key, transform.position);
 			}
 			else if (item == "Stick")
 			{
 				Character.S.stickCount += amount;
 				Character.S.hasStick = true;
+				AudioSource.PlayClipAtPoint(stick, transform.position);
 			}
 			Destroy (gameObject);
 		}

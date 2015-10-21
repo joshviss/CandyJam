@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 06ce009e7c0181e42b86ac25f63372fa
-timeCreated: 1445063577
+timeCreated: 1445430556
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - keyLight: {instanceID: 0}
+  - chime: {instanceID: 0}
+  - key: {fileID: 8300000, guid: 34cee102545581c439559f105e28f27a, type: 3}
+  - stick: {fileID: 8300000, guid: 86f61ef8fc8ed4344bb32a891d51d36c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

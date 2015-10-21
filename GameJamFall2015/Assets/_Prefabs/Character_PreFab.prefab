@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.10000002, z: 0}
+  m_LocalPosition: {x: 0, y: 1.10000002, z: 0}
   m_LocalScale: {x: .75, y: .75, z: 1}
   m_Children:
   - {fileID: 447040}
@@ -157,14 +157,14 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6500032ad2e11cc4d8f5d6e9b4e62037, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: bc8c88d892a1ab54a919bf28cde7f9a0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -398,6 +398,18 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6500032ad2e11cc4d8f5d6e9b4e62037, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: insanity
+      value: 
+      objectReference: {fileID: 8300000, guid: 08cc92da4cd332449ac72a47a5bceeb3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Priority
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143496}
