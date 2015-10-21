@@ -5,6 +5,15 @@ public class PickUp : MonoBehaviour {
 
 	public string item;
 	public int amount;
+	public Light keyLight;
+
+	// Use this for initialization
+	void Start() {
+		if (item == "Key") {
+			keyLight = transform.Find("PointLight").GetComponent<Light>();
+			keyLight.enabled = false;
+		}
+	}
 
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
@@ -20,6 +29,16 @@ public class PickUp : MonoBehaviour {
 				Character.S.hasStick = true;
 			}
 			Destroy (gameObject);
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Light") {
+			if (item == "Key") {
+				keyLight.enabled = true;
+			}
 		}
 	}
 }
