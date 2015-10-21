@@ -39,6 +39,7 @@ public class Character : MonoBehaviour {
 	public bool hasStick = false;
 	public Sprite spR, spL, spF, spRT, spLT, spFT, spRS, spLS, spFS, spBack;
 	public Light stickTorch;
+	public Collider stickLight;
 	public GameObject UI_Prefab;
 
 	// Use this for initialization
@@ -51,6 +52,7 @@ public class Character : MonoBehaviour {
 		ladderLayerMask = LayerMask.GetMask ("Ladder");
 		body = GetComponent<BoxCollider> ();
 		stickTorch = transform.Find("Torch").transform.Find("TorchPointLight").GetComponent<Light>();
+		stickLight = transform.Find("Torch").transform.Find("TorchPointLight").GetComponent<Collider>();
 
 		noRotZ = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		noRotYZ = noRotZ | RigidbodyConstraints.FreezePositionY;
@@ -143,7 +145,7 @@ public class Character : MonoBehaviour {
 		}
 
 		// Ignition of stick
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (Input.GetKeyDown (KeyCode.S)) {
 			/*if (hasTorch) { //allows you to turn off torch
 				hasTorch = false;
 				stickTorch.enabled = false;
@@ -151,6 +153,7 @@ public class Character : MonoBehaviour {
 			else*/ if (ignitionEnabled && hasStick) {
 				hasTorch = true;
 				stickTorch.enabled = true;
+				stickLight.enabled = true;
 				stickRemainTime = stickBurnTimeCap;
 			}
 		}
@@ -171,6 +174,7 @@ public class Character : MonoBehaviour {
 				stickCount = 0;
 			}
 			stickTorch.enabled = false;
+			stickLight.enabled = false;
 		}
 
 		// Damage = 0 if player has torch

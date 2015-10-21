@@ -209,6 +209,7 @@ MonoBehaviour:
   spFS: {fileID: 21300002, guid: a942743dc09c2004c9c993590e8b0c3f, type: 3}
   spBack: {fileID: 21300000, guid: 4316698f7f842a54798ac1fb9532c0ae, type: 3}
   stickTorch: {fileID: 0}
+  stickLight: {fileID: 0}
   UI_Prefab: {fileID: 144502, guid: df797ec54281b7d4691e3dd0d682c501, type: 2}
 --- !u!114 &11488896
 MonoBehaviour:
@@ -240,7 +241,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 2.54999995
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13540600
 SphereCollider:
