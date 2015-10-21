@@ -21,4 +21,12 @@ public class Title : MonoBehaviour {
 			Application.LoadLevel ("_Scene_Level2");
 		}
 	}
+
+	public void Help(){
+		Application.LoadLevel ("_Scene_Help");
+	}
+
+	public void TitleReturn(){
+		Application.LoadLevel ("_Scene_Title");
+	}
 }
