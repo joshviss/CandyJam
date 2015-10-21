@@ -6,12 +6,16 @@ public class KeySound : MonoBehaviour {
 	AudioSource chime;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		chime = GetComponent<AudioSource> ();
 		chime.playOnAwake = false;
 	}
 	
-	void OnCollisionEnter(){
-		chime.Play ();
+	void OnCollisionEnter(Collision other){
+		GameObject collidedWith = other.gameObject;
+
+		if (collidedWith.tag == "Character") {
+			chime.Play ();
+		}
 	}
 }

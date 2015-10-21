@@ -43,6 +43,10 @@ public class Character : MonoBehaviour {
 	public Collider stickLight;
 	public GameObject UI_Prefab;
 
+	void Awake(){
+		dying = GetComponent<AudioSource> ();
+	}
+
 	// Use this for initialization
 	void Start () {
 		S = this;
@@ -64,9 +68,6 @@ public class Character : MonoBehaviour {
 		UI = UIGO.GetComponentInChildren<Text> ();
 		UI.enabled = true;
 		ShowGT ();
-
-		dying = GetComponent<AudioSource> ();
-		dying.playOnAwake = false;
 
 		InvokeRepeating ("DecreaseHealth", 0f, 1f);
 	}

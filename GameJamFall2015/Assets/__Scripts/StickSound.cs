@@ -6,12 +6,15 @@ public class StickSound : MonoBehaviour {
 	AudioSource pickUp;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		pickUp = GetComponent<AudioSource> ();
-		pickUp.playOnAwake = false;
 	}
 	
-	void OnCollisionEnter(){
-		pickUp.Play ();
+	void OnCollisionEnter(Collision other){
+		GameObject collidedWith = other.gameObject;
+	
+		if (collidedWith.tag == "Character") {
+			pickUp.Play ();
+		}
 	}
 }
