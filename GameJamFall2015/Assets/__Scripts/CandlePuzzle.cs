@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CandlePuzzle : MonoBehaviour {
 
-	AudioSource error;
+	AudioSource chime;
+	public AudioClip error, success;
 	public GameObject Key;
 	public GameObject Candle1, Candle2, Candle3, Candle4;
 	public Candle Candle1Script, Candle2Script, Candle3Script, Candle4Script;
@@ -17,7 +18,7 @@ public class CandlePuzzle : MonoBehaviour {
 		Candle2Script = Candle2.GetComponent<Candle>();
 		Candle3Script = Candle3.GetComponent<Candle>();
 		Candle4Script = Candle4.GetComponent<Candle>();
-		error = GetComponent<AudioSource> ();
+		chime = GetComponent<AudioSource> ();
 	}
 	
 	bool checkCandleLit(int candleNum) {
@@ -54,8 +55,9 @@ public class CandlePuzzle : MonoBehaviour {
 
 			if ((first == 3) && (second == 1) && (third == 2) && (fourth == 4)) {
 				Key.SetActive(true);
+				chime.PlayOneShot(success);
 			} else { //sets candles off
-				error.Play ();
+				chime.PlayOneShot(error);
 				numCandlesLit = 0;
 
 				first = 0;
