@@ -53,7 +53,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8300685f77168fd40954f0d9f1f75ce6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: Stick
   amount: 2
+  keyLight: {fileID: 0}
 --- !u!114 &11473154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +176,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4de63935dcf0fcc40b22ee8357d92963, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8300685f77168fd40954f0d9f1f75ce6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130882}
