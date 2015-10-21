@@ -571,7 +571,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8eee1e3c8ad67274c8349a581ab38f86, type: 2}
+  - {fileID: 2100000, guid: f99e1a7f6cb7fad4cad7d889dbe30034, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1404,6 +1404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b5aa92700aea047a9389b9725942b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  error: {fileID: 0}
+  success: {fileID: 0}
   Key: {fileID: 1327302916}
   Candle1: {fileID: 1433461610}
   Candle2: {fileID: 1895632838}
@@ -2106,7 +2108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 137080, guid: 6538fc4ce463811409e9a66dd314a0e8, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6538fc4ce463811409e9a66dd314a0e8, type: 2}
