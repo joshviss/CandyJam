@@ -7,8 +7,8 @@ public class DestroyMonster : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Ghost") {
-			Destroy(collidedWith);
 			Monster.S.scream.Stop ();
+			Destroy(collidedWith);
 		}
 	}
 }

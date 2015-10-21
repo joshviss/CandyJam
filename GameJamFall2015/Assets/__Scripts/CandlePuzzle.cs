@@ -12,13 +12,16 @@ public class CandlePuzzle : MonoBehaviour {
 	public int first, second, third, fourth;
 	public bool isLit1 = false, isLit2 = false, isLit3 = false, isLit4 = false;
 
+	void Awake(){
+		chime = GetComponent<AudioSource> ();
+	}
+
 	// Use this for initialization
 	void Start () {
 		Candle1Script = Candle1.GetComponent<Candle>();
 		Candle2Script = Candle2.GetComponent<Candle>();
 		Candle3Script = Candle3.GetComponent<Candle>();
 		Candle4Script = Candle4.GetComponent<Candle>();
-		chime = GetComponent<AudioSource> ();
 	}
 	
 	bool checkCandleLit(int candleNum) {

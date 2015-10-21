@@ -30,6 +30,7 @@ public class Character : MonoBehaviour {
 	Facing face;
 	Text UI;
 	AudioSource dying;
+	bool playing;
 	public float stickRemainTime = 0.0f;
 	public float stickBurnTimeCap = 5.0f;
 	public int health = 15;
@@ -79,22 +80,25 @@ public class Character : MonoBehaviour {
 	void DecreaseHealth(){
 		health -= damage;
 		Debug.Log(health);
-	}
-
-	void Update(){
-		ShowGT ();
 
 		// Game Over
 		if (health <= 0) {
 			Application.LoadLevel ("_Scene_GameOver");
 		}
-
-		// Play sounds if health is lower than certain amount
-		if (health < 15) {
+		
+		// Play sounds if health is not maxed
+		if (health < 15 && !playing) {
 			dying.Play ();
+			playing = true;
 		} else {
 			dying.Stop ();
+			playing = false;
 		}
+
+	}
+
+	void Update(){
+		ShowGT ();
 
 		// Free sticks (Just in case)
 		if (Input.GetKeyDown(KeyCode.I)){
