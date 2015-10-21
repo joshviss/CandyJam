@@ -5050,6 +5050,10 @@ Prefab:
       propertyPath: torches
       value: 
       objectReference: {fileID: 604461025}
+    - target: {fileID: 8204990, guid: 1c82fe17699af1845a2e1f2d4e897e8a, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c82fe17699af1845a2e1f2d4e897e8a, type: 2}
   m_IsPrefabParent: 0
