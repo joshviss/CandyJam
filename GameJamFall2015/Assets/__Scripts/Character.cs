@@ -29,6 +29,7 @@ public class Character : MonoBehaviour {
 	bool ignitionEnabled = false;
 	Facing face;
 	Text UI;
+	AudioSource dying;
 	public float stickRemainTime = 0.0f;
 	public float stickBurnTimeCap = 5.0f;
 	public int health = 15;
@@ -62,6 +63,9 @@ public class Character : MonoBehaviour {
 		UI.enabled = true;
 		ShowGT ();
 
+		dying = GetComponent<AudioSource> ();
+		dying.playOnAwake = false;
+
 		InvokeRepeating ("DecreaseHealth", 0f, 1f);
 	}
 
@@ -77,8 +81,16 @@ public class Character : MonoBehaviour {
 	void Update(){
 		ShowGT ();
 
+		// Game Over
 		if (health <= 0) {
 			Application.LoadLevel ("_Scene_GameOver");
+		}
+
+		// Play sounds if health is lower than certain amount
+		if (health <= healthCap * 0.8) {
+			dying.Play ();
+		} else {
+			dying.Stop ();
 		}
 
 		// Free sticks (Just in case)
@@ -86,8 +98,8 @@ public class Character : MonoBehaviour {
 			stickCount++;
 		}
 
-		Vector3 vel = rigid.velocity;
 		// Jumping
+		Vector3 vel = rigid.velocity;
 		if (Input.GetKeyDown (KeyCode.A) && grounded && !onLadder) {
 			vel.y = speedJump;
 		}
@@ -216,6 +228,7 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		GameObject collidedWith = other.gameObject;
 
+		// Game Over if you collide with the ghost
 		if (collidedWith.tag == "Ghost") {
 			Application.LoadLevel ("_Scene_GameOver");
 		}

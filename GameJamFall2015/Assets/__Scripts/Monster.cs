@@ -5,7 +5,8 @@ public class Monster : MonoBehaviour {
 
 	static public Monster S; // Singleton
 	SpriteRenderer spRend;
-	float speed = 1.5f;
+	AudioSource scream;
+	float speed = 1.75f;
 	Vector3 charPos;
 	public Sprite spR, spL;
 	public bool awake;
@@ -15,13 +16,9 @@ public class Monster : MonoBehaviour {
 	void Start () {
 		S = this;
 		spRend = GetComponent<SpriteRenderer> ();
+		scream = GetComponent<AudioSource>();
+		scream.playOnAwake = false;
 		awake = false;
-	}
-
-	void Warp(){
-		if (awake) {
-			charPos = Character.S.transform.position;
-		}
 	}
 
 	void Update(){
@@ -44,10 +41,14 @@ public class Monster : MonoBehaviour {
 		GameObject collidedWith = other.gameObject;
 
 		if (collidedWith.tag == "Character") {
-			awake = true;
+			if (!awake){
+				awake = true;
 			
-			Destroy(torches);
-			fire.SetActive(true);
+				Destroy(torches);
+				fire.SetActive(true);
+
+				scream.Play ();
+			}
 		}
 	}
 }
